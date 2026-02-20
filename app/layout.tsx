@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     description: "The Hub for Every Dev Event You Mustn't Miss",
 };
 
+
 export default function RootLayout({
                                        children,
                                    }: Readonly<{
