@@ -24,6 +24,7 @@ if (!global.mongoose) {
 
 /**
  * * Open or reuse a cached Mongoose connection to the MongoDB URI configured in MONGODB_URI.
+ *  *
  *  * @returns The connected Mongoose instance
  *  * @throws The error raised while attempting to establish the connection if connection fails
  */
