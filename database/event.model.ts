@@ -142,8 +142,12 @@ EventSchema.pre('save', function (next) {
 });
 
 /**
- * Generate URL-friendly slug from title
- * Converts to lowercase, replaces spaces with hyphens, removes special characters
+ * Create a URL-friendly slug from a title.
+ *
+ * Converts the input to lowercase, trims whitespace, removes characters other than letters, digits, underscores, spaces, and hyphens, collapses consecutive whitespace to single hyphens, and trims leading or trailing hyphens.
+ *
+ * @param title - The source string to convert into a slug
+ * @returns The resulting slug (e.g., "my-event-title")
  */
 function generateSlug(title: string): string {
   return title
@@ -156,8 +160,13 @@ function generateSlug(title: string): string {
 }
 
 /**
- * Normalize time to 24-hour format (HH:MM)
- * Accepts formats like "14:30", "2:30 PM", "02:30"
+ * Normalize a time string into 24-hour "HH:MM" format.
+ *
+ * Recognizes 24-hour inputs like "14:30" and 12-hour inputs like "2:30 PM" (case-insensitive).
+ * Returns an empty string when the input is not a valid time.
+ *
+ * @param time - The input time string (e.g., "14:30", "02:30", "2:30 PM")
+ * @returns The normalized time as "HH:MM" with zero-padded hours, or an empty string if invalid
  */
 function normalizeTime(time: string): string {
   const trimmedTime = time.trim();

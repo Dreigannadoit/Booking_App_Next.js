@@ -35,10 +35,10 @@ if (!global.mongoose) {
 }
 
 /**
- * Establishes a connection to MongoDB using Mongoose
- * Caches the connection to reuse across function calls
- * 
- * @returns Promise resolving to the Mongoose instance
+ * Open or reuse a cached Mongoose connection to the MongoDB URI configured in MONGODB_URI.
+ *
+ * @returns The connected Mongoose instance
+ * @throws The error raised while attempting to establish the connection if connection fails
  */
 async function connectDB(): Promise<typeof mongoose> {
   // Return existing connection if available
